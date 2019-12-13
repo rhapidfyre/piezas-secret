@@ -30,6 +30,7 @@ TEST(TicTacToeBoard, checkEnums) {
   ASSERT_EQ(Blank, ' ');
 }
 
+
 // Ensure setup is proper
 TEST(Piezas, buildBoard) {
   
@@ -40,17 +41,27 @@ TEST(Piezas, buildBoard) {
     
 }
 
+
 // Can a piece be placed
 TEST(Piezas, placePiece) {
   Piezas pieza;
   ASSERT_EQ(pieza.dropPiece(0), X);
 }
 
+
+// Out of bounds check
+TEST(Piezas, placeOut) {
+  Piezas pieza;
+  ASSERT_EQ(pieza.dropPiece(-1), Invalid);
+  ASSERT_EQ(pieza.dropPiece(218), Invalid);
+}
+
+
 // Does the turn toggle properly
 TEST(Piezas, testObtain) {
   Piezas pieza;
   
-  Piece rx = pieze.dropPiece(0);
+  Piece rx = pieza.dropPiece(0);
   ASSERT_EQ(rx, X) << "Expected X, received: " << rx;
   
   rx = pieze.dropPiece(0);
@@ -59,6 +70,7 @@ TEST(Piezas, testObtain) {
   rx = pieze.dropPiece(0);
   ASSERT_EQ(pieza.dropPiece(0), X) << "Expected X, received: " << rx;
 }
+
 
 // Ensure board can reset after a piece has been placed
 TEST(Piezas, resetBoard) { 
@@ -74,7 +86,8 @@ TEST(Piezas, resetBoard) {
     
 }
 
-// Ensure that pieces dropped are accurate
+
+// Ensure that pieces dropped don't exceed the maximum
 TEST(Piezas, fullColumn) {
   Piezas pieza;
   pieza.dropPiece(0);
