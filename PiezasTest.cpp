@@ -118,6 +118,7 @@ TEST(Piezas, catsGame) {
 }
 
 TEST(Piezas, xWins) {
+  Piezas pieza;
   pieza.dropPiece(0);
   pieza.dropPiece(0);
   pieza.dropPiece(1);
