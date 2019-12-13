@@ -49,9 +49,15 @@ TEST(Piezas, placePiece) {
 // Does the turn toggle properly
 TEST(Piezas, testObtain) {
   Piezas pieza;
-  ASSERT_EQ(pieza.dropPiece(0), X);
-  ASSERT_EQ(pieza.dropPiece(0), O);
-  ASSERT_EQ(pieza.dropPiece(0), X);
+  
+  Piece rx = pieze.dropPiece(0);
+  ASSERT_EQ(rx, X) << "Expected X, received: " << rx;
+  
+  rx = pieze.dropPiece(0);
+  ASSERT_EQ(pieza.dropPiece(0), O) << "Expected O, received: " << rx;
+  
+  rx = pieze.dropPiece(0);
+  ASSERT_EQ(pieza.dropPiece(0), X) << "Expected X, received: " << rx;
 }
 
 // Ensure board can reset after a piece has been placed

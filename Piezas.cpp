@@ -57,7 +57,7 @@ Piece Piezas::dropPiece(int column)
     // Since the turn always toggles, toggle the turn
     // Capture the current turn to `temp`
     Piece temp = turn;
-    turn       = (turn == X) ? X : O;
+    Piece next = (turn == X) ? X : O;
       
     if (column < 0 || column >= BOARD_COLS) return Invalid;
     
@@ -70,7 +70,7 @@ Piece Piezas::dropPiece(int column)
     else {
       for (int i=0;i<BOARD_ROWS;i++) {
         // Stop at the first blank row and then place the piece
-        if (pieceAt(i, column) == Blank) {
+        if (board[i][column] == Blank) {
           board[i][column] = temp;
           return board[i][column];
         }
@@ -107,6 +107,13 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-  
+  /*
+  bool gameOver = true;
+  for(int i=0; i<BOARD_ROWS; i++)
+    for(int j=0; j<BOARD_COLS; j++)
+      if (board[i][j] == Blank)
+        gameOver = false;
+    
+  */
   return Blank;
 }
