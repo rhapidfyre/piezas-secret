@@ -85,10 +85,10 @@ TEST(Piezas, resetBoard) {
 // Ensure that pieces dropped don't exceed the maximum
 TEST(Piezas, fullColumn) {
   Piezas pieza;
-  pieza.dropPiece(0);
-  pieza.dropPiece(0);
-  pieza.dropPiece(0);
-  ASSERT_EQ(pieza.dropPiece(0), Invalid);
+  pieza.dropPiece(0); // 0 = X
+  pieza.dropPiece(0); // 1 = O
+  pieza.dropPiece(0); // 2 = X
+  ASSERT_EQ(pieza.dropPiece(0), Blank); // > 2 = Column Full
 }
 
 /* template for C&P
