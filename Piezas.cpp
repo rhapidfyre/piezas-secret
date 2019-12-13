@@ -38,11 +38,9 @@ Piezas::Piezas() {
  * same size as previously specified
 **/
 void Piezas::reset() {
-  /*
   for(int i=0; i<BOARD_ROWS; i++)
     for(int j=0; j<BOARD_COLS; j++)
       board[i][j] = Blank;
- */
 }
 
 /**
@@ -56,28 +54,29 @@ void Piezas::reset() {
 Piece Piezas::dropPiece(int column)
 {
     
+    // Since the turn always toggles, toggle the turn
+    // Capture the current turn to `temp`
     Piece temp = turn;
     turn       = (turn = X) ? X : O;
       
     if (column < 0 || column >= BOARD_COLS) return Invalid;
     
+    // If topmost row is occupied, this column is full
     if (board[2][column] != Blank) {
-      turn = (turn = X) ? X : O;
       return Blank;
     }
+    
+    // Otherwise a row is available for this column
     else {
       for (int i=0;i<BOARD_ROWS;i++) {
         // Stop at the first blank row and then place the piece
         if (pieceAt(i, column) == Blank) {
-          std::vector<Piece> rowInfo;
-          rowInfo[column] = turn;
-          turn = (turn = X) ? X : O;
+          board[i][column] = temp;
           return rowInfo[column];
         }
       }
     }
     
-    turn = (turn = X) ? X : O;
     return Invalid;
 }
 
