@@ -14,7 +14,28 @@ class PiezasTest : public ::testing::Test
 		virtual void TearDown(){} //clean up after each test, (before destructor) 
 };
 
+/*
 TEST(PiezasTest, sanityCheck)
 {
 	ASSERT_TRUE(true);
+}
+*/
+
+
+// Tests each enum
+TEST(TicTacToeBoard, checkEnums) {
+  ASSERT_EQ(X, 'X');
+  ASSERT_EQ(O, 'O');
+  ASSERT_EQ(Invalid, '?');
+  ASSERT_EQ(Blank, ' ');
+}
+
+// Ensure setup is proper
+TEST(Piezas, buildBoard) {
+  
+  Piezas pieza;
+  for(int i=0; i<BOARD_ROWS; i++)
+    for(int j=0; j<BOARD_COLS; j++)
+      ASSERT_EQ(pieza.pieceAt(i,j), Blank);
+    
 }
