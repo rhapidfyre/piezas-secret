@@ -61,23 +61,18 @@ Piece Piezas::dropPiece(int column)
       
     if (column < 0 || column >= BOARD_COLS) return Invalid;
     
-    // If topmost row is occupied, this column is full
-    if (board[2][column] != Blank) {
-      return Blank;
-    }
-    
     // Otherwise a row is available for this column
     else {
       for (int i=0;i<BOARD_ROWS;i++) {
         // Stop at the first blank row and then place the piece
         if (board[i][column] == Blank) {
           board[i][column] = temp;
-          return board[i][column];
+          return temp;
         }
       }
     }
     
-    return Invalid;
+    return Blank;
 }
 
 /**
@@ -107,13 +102,17 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-  /*
   bool gameOver = true;
+  
   for(int i=0; i<BOARD_ROWS; i++)
     for(int j=0; j<BOARD_COLS; j++)
       if (board[i][j] == Blank)
         gameOver = false;
+      
+  if (gameOver) {
     
-  */
-  return Blank;
+    return Blank;
+  }
+  
+  return Invalid;
 }
