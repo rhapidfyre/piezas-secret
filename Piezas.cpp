@@ -62,14 +62,15 @@ Piece Piezas::dropPiece(int column)
       return Invalid;
     }
     
-    if (board[2][column] != Blank) ret = Blank;
+    if (board[2][column] != Blank) return = Blank;
     else {
       for (int i=0;i<BOARD_ROWS;i++) {
         // Stop at the first blank row and then place the piece
         if (pieceAt(i, column) == Blank) {
-          board[i][column] = temp;
+          std::vector<Piece> rowInfo;
+          rowInfo[column] = turn;
           turn = (turn = X) ? X : O;
-          return pieceAt(i, column);
+          return rowInfo[column];
         }
       }
     }
@@ -84,7 +85,13 @@ Piece Piezas::dropPiece(int column)
 **/
 Piece Piezas::pieceAt(int row, int column)
 {
-    return Blank;
+  
+  if (row    >= BOARD_ROWS || row    < 0) return Invalid;
+  if (column >= BOARD_COLS || column < 0) return Invalid;
+  
+  std::vector<Piece> temp;
+  return temp[column];
+  
 }
 
 /**
