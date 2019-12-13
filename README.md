@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/rhapidfyre/piezas-secret?branch=master)](https://travis-ci.org/rhapidfyre/piezas-secret)
+[![Build Status](https://travis-ci.org/rhapidfyre/piezas-secret?branch=master)](https://travis-ci.org/rhapidfyre/piezas-secret)]
 [![Coverage Status](https://coveralls.io/repos/github/rhapidfyre/piezas-secret/badge.svg?branch=master&t=GrT3n5)](https://coveralls.io/github/rhapidfyre/piezas-secret?branch=master)
 # Piezas
 
