@@ -72,7 +72,7 @@ Piece Piezas::dropPiece(int column)
         // Stop at the first blank row and then place the piece
         if (pieceAt(i, column) == Blank) {
           board[i][column] = temp;
-          return rowInfo[column];
+          return board[i][column];
         }
       }
     }
