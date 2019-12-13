@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.com/rhapidfyre/piezas-secret.svg?token=YQuixjt64y8Lxxz9tvQ5&branch=master)](https://travis-ci.org/rhapidfyre/piezas-secret)
 [![Coverage Status](https://coveralls.io/repos/github/rhapidfyre/piezas-secret/badge.svg?branch=master&t=GrT3n5)](https://coveralls.io/github/rhapidfyre/piezas-secret?branch=master)
 # Piezas
+A Unit Testing Assignment from CSCI 430 (Software Engineering) at CSU Chico.
+Original created by Kevin Buffardi (Instructor)
 
 
 ## Associated Enumerated Types
