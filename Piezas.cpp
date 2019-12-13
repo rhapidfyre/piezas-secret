@@ -24,13 +24,12 @@ Piezas::Piezas() {
   
   turn = X;
   
-  // board[i]
-  for(int i=0; i<BOARD_ROWS; i++) {
-    std::vector<Piece> rowInfo;
-    // board[i][j]
-    for(int j=0; j<BOARD_COLS; j++) rowInfo[j] = Blank;
-    board[i] = rowInfo;
-  }
+  // Alloc columns using constructor and populate it with "Blank"
+  std::vector<Piece> rowInfo(BOARD_COLS, Blank);
+  
+  // After two hours of beating my head, I found resize. Let's try it?
+  //http://www.cplusplus.com/reference/vector/vector/resize/
+  board.resize(BOARD_ROWS, std::vector<Piece> RowInfo);
   
 }
 
@@ -91,11 +90,11 @@ Piece Piezas::pieceAt(int row, int column)
   
   if (row    >= BOARD_ROWS || row    < 0) return Invalid;
   if (column >= BOARD_COLS || column < 0) return Invalid;
-  return Blank;
-  /*
-  std::vector<Piece> temp;
-  return temp[column];
-  */
+  
+  // I thought you could index a vector but this doesn't seem to work.
+  // Gives a Seg Fault... But I have no idea.
+  return board[row][column];
+  
 }
 
 /**
