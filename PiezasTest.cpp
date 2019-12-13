@@ -61,14 +61,9 @@ TEST(Piezas, placeOut) {
 TEST(Piezas, testObtain) {
   Piezas pieza;
   
-  Piece rx = pieza.dropPiece(0);
-  ASSERT_EQ(rx, X) << "Expected X, received: " << rx;
-  
-  rx = pieza.dropPiece(0);
-  ASSERT_EQ(pieza.dropPiece(0), O) << "Expected O, received: " << rx;
-  
-  rx = pieza.dropPiece(0);
-  ASSERT_EQ(pieza.dropPiece(0), X) << "Expected X, received: " << rx;
+  ASSERT_EQ(pieza.dropPiece(0), X);
+  ASSERT_EQ(pieza.dropPiece(0), O);
+  ASSERT_EQ(pieza.dropPiece(0), X);
 }
 
 

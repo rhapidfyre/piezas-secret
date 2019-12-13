@@ -57,7 +57,7 @@ Piece Piezas::dropPiece(int column)
     // Since the turn always toggles, toggle the turn
     // Capture the current turn to `temp`
     Piece temp = turn;
-    turn       = (turn == X) ? O : X;
+    turn       = ((turn == X) ? O : X);
       
     if (column < 0 || column >= BOARD_COLS) return Invalid;
     
