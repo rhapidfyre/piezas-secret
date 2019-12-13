@@ -22,9 +22,15 @@
 **/
 Piezas::Piezas() {
   turn = X;
-  for(int i=(1 - BOARD_ROWS); i>=0; i--)
-    for(int j=0; j<BOARD_COLS; j++)
-      board[i][j] = Blank;
+  
+  // board[i]
+  for(int i=0; i<BOARD_COLS>; i++) {
+    std::vector<Piece> rowInfo;
+    // board[i][j]
+    for(int j=0; j<BOARD_COLS>; j++) rowInfo[j] = Blank;
+    board[i] = rowInfo;
+  }
+  
 }
 
 /**
@@ -32,9 +38,11 @@ Piezas::Piezas() {
  * same size as previously specified
 **/
 void Piezas::reset() {
-  for(int i=(1 - BOARD_ROWS); i>=0; i--)
+  /*
+  for(int i=0; i<BOARD_ROWS; i++)
     for(int j=0; j<BOARD_COLS; j++)
       board[i][j] = Blank;
+ */
 }
 
 /**
@@ -47,13 +55,11 @@ void Piezas::reset() {
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    // Hold current position and toggle the turn (turn always toggles)
-    Piece temp = turn;
-    Piece ret  = Invalid;
-    if (turn == X) turn = O;
-    else turn = X;
     
-    if (column < 0 || column >= BOARD_COLS) return Invalid;
+    if (column < 0 || column >= BOARD_COLS) {
+      turn = (turn = X) ? X : O;
+      return Invalid;
+    }
     
     if (board[2][column] != Blank) ret = Blank;
     else {
@@ -61,14 +67,14 @@ Piece Piezas::dropPiece(int column)
         // Stop at the first blank row and then place the piece
         if (pieceAt(i, column) == Blank) {
           board[i][column] = temp;
-          ret = pieceAt(i, column);
-          i = BOARD_ROWS; // Stops the loop
-          break; // Just to make sure it's stopped
+          turn = (turn = X) ? X : O;
+          return pieceAt(i, column);
         }
       }
     }
     
-    return ret;
+    turn = (turn = X) ? X : O;
+    return Invalid;
 }
 
 /**
