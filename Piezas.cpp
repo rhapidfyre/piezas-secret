@@ -57,7 +57,7 @@ Piece Piezas::dropPiece(int column)
     // Since the turn always toggles, toggle the turn
     // Capture the current turn to `temp`
     Piece temp = turn;
-    turn       = (turn = X) ? X : O;
+    turn       = (turn == X) ? X : O;
       
     if (column < 0 || column >= BOARD_COLS) return Invalid;
     
@@ -107,5 +107,6 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-    return Blank;
+  
+  return Blank;
 }
