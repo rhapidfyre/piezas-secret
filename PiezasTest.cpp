@@ -40,27 +40,19 @@ TEST(Piezas, buildBoard) {
     
 }
 
-// Obtain a piece (blank)
+// Can a piece be placed
 TEST(Piezas, testObtain) {
   Piezas pieza;
-  pieza.dropPiece(0);
-  pieza.dropPiece(0);
-  ASSERT_EQ(pieza.pieceAt(0, 0), X);
-  ASSERT_EQ(pieza.pieceAt(1, 0), O);
-  ASSERT_EQ(pieza.pieceAt(2, 0), Blank);
+  ASSERT_EQ(pieza.dropPiece(0), X);
 }
 
 // Ensure board can reset
 TEST(Piezas, resetBoard) {
   
   Piezas pieza;
-  for(int i=0; i<BOARD_ROWS; i++)
-    for(int j=0; j<BOARD_COLS; j++)
-      ASSERT_EQ(pieza.pieceAt(i,j), Blank);
-    
+  pieza.dropPiece(0);
+  
   pieza.reset();
-  for(int i=0; i<BOARD_ROWS; i++)
-    for(int j=0; j<BOARD_COLS; j++)
-      ASSERT_EQ(pieza.pieceAt(i,j), Blank);
+  ASSERT_EQ(pieza.pieceAt(0,0), Blank);
     
 }
