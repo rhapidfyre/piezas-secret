@@ -39,3 +39,28 @@ TEST(Piezas, buildBoard) {
       ASSERT_EQ(pieza.pieceAt(i,j), Blank);
     
 }
+
+// Obtain a piece (blank)
+TEST(Piezas, testObtain) {
+  Piezas pieza;
+  pieza.dropPiece(0);
+  pieza.dropPiece(0);
+  ASSERT_EQ(pieza.pieceAt(0, 0), X);
+  ASSERT_EQ(pieza.pieceAt(1, 0), O);
+  ASSERT_EQ(pieza.pieceAt(2, 0), Blank);
+}
+
+// Ensure board can reset
+TEST(Piezas, resetBoard) {
+  
+  Piezas pieza;
+  for(int i=0; i<BOARD_ROWS; i++)
+    for(int j=0; j<BOARD_COLS; j++)
+      ASSERT_EQ(pieza.pieceAt(i,j), Blank);
+    
+  pieza.reset();
+  for(int i=0; i<BOARD_ROWS; i++)
+    for(int j=0; j<BOARD_COLS; j++)
+      ASSERT_EQ(pieza.pieceAt(i,j), Blank);
+    
+}

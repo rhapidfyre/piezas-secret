@@ -47,25 +47,28 @@ void Piezas::reset() {
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-  /*
+    // Hold current position and toggle the turn (turn always toggles)
     Piece temp = turn;
+    Piece ret  = Invalid;
     if (turn == X) turn = O;
     else turn = X;
     
     if (column < 0 || column >= BOARD_COLS) return Invalid;
     
-    if (board[2][column] != Blank) return Blank;
+    if (board[2][column] != Blank) ret = Blank;
     else {
       for (int i=0;i<BOARD_ROWS;i++) {
+        // Stop at the first blank row and then place the piece
         if (pieceAt(i, column) == Blank) {
           board[i, column] = temp;
-          return pieceAt(i, column);
+          ret = pieceAt(i, column);
+          i = BOARD_ROWS; // Stops the loop
+          break; // Just to make sure it's stopped
         }
       }
     }
-    return turn;
-    */
     
+    return ret;
 }
 
 /**
