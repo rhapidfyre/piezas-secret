@@ -60,7 +60,7 @@ Piece Piezas::dropPiece(int column)
       for (int i=0;i<BOARD_ROWS;i++) {
         // Stop at the first blank row and then place the piece
         if (pieceAt(i, column) == Blank) {
-          board[i, column] = temp;
+          board[i][column] = temp;
           ret = pieceAt(i, column);
           i = BOARD_ROWS; // Stops the loop
           break; // Just to make sure it's stopped
