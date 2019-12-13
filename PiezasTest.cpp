@@ -41,7 +41,7 @@ TEST(Piezas, buildBoard) {
 }
 
 // Can a piece be placed
-TEST(Piezas, testObtain) {
+TEST(Piezas, placePiece) {
   Piezas pieza;
   ASSERT_EQ(pieza.dropPiece(0), X);
 }
@@ -77,6 +77,8 @@ TEST(Piezas, fullColumn) {
   ASSERT_EQ(pieza.dropPiece(0), Invalid);
 }
 
+/* template for C&P
 TEST(Piezas, ) {
   
 }
+*/
