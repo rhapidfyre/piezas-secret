@@ -91,8 +91,44 @@ TEST(Piezas, fullColumn) {
   ASSERT_EQ(pieza.dropPiece(0), Blank); // > 2 = Column Full
 }
 
-/* template for C&P
-TEST(Piezas, ) {
-  
+TEST(Piezas, gameNotDone) {
+  Piezas pieza;
+  pieza.dropPiece(0);
+  pieza.dropPiece(0);
+  pieza.dropPiece(1);
+  pieza.dropPiece(2);
+  ASSERT_EQ(pieza.gameState(), Invalid);
 }
-*/
+
+TEST(Piezas, catsGame) {
+  Piezas pieza;
+  pieza.dropPiece(0);
+  pieza.dropPiece(0);
+  pieza.dropPiece(0);
+  pieza.dropPiece(1);
+  pieza.dropPiece(1);
+  pieza.dropPiece(1);
+  pieza.dropPiece(2);
+  pieza.dropPiece(2);
+  pieza.dropPiece(2);
+  pieza.dropPiece(3);
+  pieza.dropPiece(3);
+  pieza.dropPiece(3);
+  ASSERT_EQ(pieza.gameState(), Blank);
+}
+
+TEST(Piezas, xWins) {
+  pieza.dropPiece(0);
+  pieza.dropPiece(0);
+  pieza.dropPiece(1);
+  pieza.dropPiece(0);
+  pieza.dropPiece(2);
+  pieza.dropPiece(1);
+  pieza.dropPiece(3);
+  pieza.dropPiece(1);
+  pieza.dropPiece(2);
+  pieza.dropPiece(3);
+  pieza.dropPiece(2);
+  pieza.dropPiece(3);
+  ASSERT_EQ(pieza.gameState(), X);
+}

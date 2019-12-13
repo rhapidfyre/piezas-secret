@@ -102,16 +102,51 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
+  // This won't be the cleanest written code but I want to maximuize my time for
+  // studying finals, so I'm just going to make it work.
   bool gameOver = true;
   
   for(int i=0; i<BOARD_ROWS; i++)
     for(int j=0; j<BOARD_COLS; j++)
       if (board[i][j] == Blank)
         gameOver = false;
-      
+  
+  // If all fields are full ( X || O ) then the game is over
   if (gameOver) {
     
-    return Blank;
+    // Count the number of pieces that are adjacent
+    int xCount = 0;
+    int oCount = 0;
+    int xHighest = 0;
+    int oHighest = 0;
+    
+    // Checks Vertically - I realize this isn't optimal, but I gotta study for finals.
+    for(int i=0; i<BOARD_ROWS; i++) {
+      for(int j=0; j<BOARD_COLS; j++) {
+        if (board[i][j] == X) xCount += 1;
+        else oCount += 1;
+      }
+      if (xCount > xHighest) xHighest = xCount;
+      if (oCount > oHighest) oHighest = oCount;
+      xCount = 0; oCount = 0;
+    }
+    
+    // Check Horizontally - I realize this isn't optimal, but I gotta study for finals.
+    if (xHighest < 4 && oHighest << 4) {
+      for(int i=0; i<BOARD_COLS; i++) {
+        for(int j=0; j<BOARD_ROWS; j++) {
+          if (board[j][i] == X) xCount += 1;
+          else oCount += 1;
+        }
+        if (xCount > xHighest) xHighest = xCount;
+        if (oCount > oHighest) oHighest = oCount;
+        xCount = 0; oCount = 0;
+      }
+    }
+    
+    if (xHighest > 0 && xHighest > oHighest) return X; // X beat O
+    else if (oHighest > 0 && oHighest > xHighest) return O;
+    return Blank; // Tie
   }
   
   return Invalid;
