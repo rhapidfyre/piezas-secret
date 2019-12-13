@@ -57,12 +57,15 @@ void Piezas::reset() {
 Piece Piezas::dropPiece(int column)
 {
     
-    if (column < 0 || column >= BOARD_COLS) {
-      turn = (turn = X) ? X : O;
-      return Invalid;
-    }
+    Piece temp = turn;
+    turn       = (turn = X) ? X : O;
+      
+    if (column < 0 || column >= BOARD_COLS) return Invalid;
     
-    if (board[2][column] != Blank) return Blank;
+    if (board[2][column] != Blank) {
+      turn = (turn = X) ? X : O;
+      return Blank;
+    }
     else {
       for (int i=0;i<BOARD_ROWS;i++) {
         // Stop at the first blank row and then place the piece
@@ -88,10 +91,11 @@ Piece Piezas::pieceAt(int row, int column)
   
   if (row    >= BOARD_ROWS || row    < 0) return Invalid;
   if (column >= BOARD_COLS || column < 0) return Invalid;
-  
+  return Blank;
+  /*
   std::vector<Piece> temp;
   return temp[column];
-  
+  */
 }
 
 /**
