@@ -22,9 +22,8 @@
 **/
 Piezas::Piezas() {
   turn = X;
-  for(int i=0; i<BOARD_ROWS; i++)
+  for(int i=(1 - BOARD_ROWS); i>=0; i--)
     for(int j=0; j<BOARD_COLS; j++)
-      std::cout<<i<<","<<j<<std::endl;
       board[i][j] = Blank;
 }
 
@@ -32,8 +31,10 @@ Piezas::Piezas() {
  * Resets each board location to the Blank Piece value, with a board of the
  * same size as previously specified
 **/
-void Piezas::reset()
-{
+void Piezas::reset() {
+  for(int i=(1 - BOARD_ROWS); i>=0; i--)
+    for(int j=0; j<BOARD_COLS; j++)
+      board[i][j] = Blank;
 }
 
 /**
@@ -46,7 +47,25 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    return Blank;
+  /*
+    Piece temp = turn;
+    if (turn == X) turn = O;
+    else turn = X;
+    
+    if (column < 0 || column >= BOARD_COLS) return Invalid;
+    
+    if (board[2][column] != Blank) return Blank;
+    else {
+      for (int i=0;i<BOARD_ROWS;i++) {
+        if (pieceAt(i, column) == Blank) {
+          board[i, column] = temp;
+          return pieceAt(i, column);
+        }
+      }
+    }
+    return turn;
+    */
+    
 }
 
 /**
