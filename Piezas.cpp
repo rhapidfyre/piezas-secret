@@ -62,7 +62,7 @@ Piece Piezas::dropPiece(int column)
       return Invalid;
     }
     
-    if (board[2][column] != Blank) return = Blank;
+    if (board[2][column] != Blank) return Blank;
     else {
       for (int i=0;i<BOARD_ROWS;i++) {
         // Stop at the first blank row and then place the piece
