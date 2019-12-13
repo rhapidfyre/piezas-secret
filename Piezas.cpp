@@ -29,7 +29,7 @@ Piezas::Piezas() {
   
   // After two hours of beating my head, I found resize. Let's try it?
   //http://www.cplusplus.com/reference/vector/vector/resize/
-  board.resize(BOARD_ROWS, std::vector<Piece> rowInfo);
+  board.resize(BOARD_ROWS, rowInfo);
   
 }
 
