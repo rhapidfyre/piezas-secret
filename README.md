@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rhapidfyre/piezas-secret?branch=master)](https://travis-ci.org/rhapidfyre/TicTacToeBoard)[![Coverage Status](https://coveralls.io/repos/github/rhapidfyre/TicTacToeBoard/badge.svg?branch=master)](https://coveralls.io/github/RhapidFyre/TicTacToeBoard?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/rhapidfyre/piezas-secret/badge.svg?branch=master&t=GrT3n5)](https://coveralls.io/github/rhapidfyre/piezas-secret?branch=master)
 # Piezas
 
 ## Associated Enumerated Types
