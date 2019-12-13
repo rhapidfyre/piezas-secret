@@ -21,13 +21,14 @@
  * specifies it is X's turn first
 **/
 Piezas::Piezas() {
+  
   turn = X;
   
   // board[i]
-  for(int i=0; i<BOARD_COLS>; i++) {
+  for(int i=0; i<BOARD_ROWS; i++) {
     std::vector<Piece> rowInfo;
     // board[i][j]
-    for(int j=0; j<BOARD_COLS>; j++) rowInfo[j] = Blank;
+    for(int j=0; j<BOARD_COLS; j++) rowInfo[j] = Blank;
     board[i] = rowInfo;
   }
   
